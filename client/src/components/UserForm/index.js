@@ -53,6 +53,8 @@ function UserForm({ getQuiz }){
                 <option value="medium">Medium</option>
                 <option value="hard">Hard</option>
             </select>
+
+            <input type="submit" value="Submit"/>
         </form>
     )
 }

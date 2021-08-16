@@ -4,13 +4,14 @@ import axios from "axios";
 
 function WelcomePage(){
 
-    const [ quiz, setQuiz] = useState([])
-    const [ error, setError ] = usetate("");
+    const [ quiz, setQuiz] = useState([]);
+    const [ error, setError ] = useState("");
 
     const getQuiz = async userChoices =>{
         try{
             setError(null);
             let { data } = await axios.get(`https://opentdb.com/api.php?amount=10&category=${userChoices.category}&difficulty=${userChoices.difficulty}&type=multiple`);
+            console.log(`This is the data ${data}`)
             if(!data.results.length){
                 setError("Sorry, no quizzes available!")
             }
@@ -23,6 +24,7 @@ function WelcomePage(){
                     return {question, correctAnswer, incorrectAnswers};
                 })
                 setQuiz(quizArray);
+                console.log(`this is the array: ${quiz}`)
             }
         }
         catch(err){
