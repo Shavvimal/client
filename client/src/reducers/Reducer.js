@@ -1,4 +1,4 @@
-const initState = { username: "", category: "", difficulty: "", result: {quiz: []}, loading: false };
+const initState = { username: "", category: "", difficulty: "", result: { quiz }, loading: false };
 
 const Reducer = (state=initState, action) => {
     switch(action.type) {
