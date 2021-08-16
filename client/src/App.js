@@ -1,18 +1,20 @@
-import React from 'react';
-
-import { Header, Footer } from './layout';
+import React, { useState } from 'react';
+import {Home} from './pages';
+import { Header } from './layout';
 import { WelcomePage } from './pages';
-import "./style.css";
+import './styles/app.css';
+
 
 function App(){
 
-  return(
-    <>
-      {/* <Header/> */}
-      <WelcomePage/>
-      {/* <Footer/> */}
-    </>
-  );
-};
+    return (
+        <>
+            <Header />
+            <Home />
+            <WelcomePage/>
+        </>
+    )
+}
+
 
 export default App;

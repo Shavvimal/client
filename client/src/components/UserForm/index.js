@@ -8,10 +8,11 @@ function UserForm({ getQuiz }){
 
     const handleSubmit = e => {
         e.preventDefault();
-        getQuiz({username, category, difficulty});
+        const quizRequest = {username, category, difficulty};
+        getQuiz(quizRequest);
     }
 
-    const updateInput = e =>{
+    const updateUsername = e =>{
         const input = e.target.value;
         setUsername(input);
     }
@@ -29,7 +30,7 @@ function UserForm({ getQuiz }){
     return(
         <form role="form" onSubmit={handleSubmit}>
             <label htmlFor="username">Username</label>
-            <input id="username" type="text"  onMouseOver={e => e.target.placeholder=''} onMouseOut={e => e.target.placeholder="Enter a username..."} value={updateInput}/>
+            <input id="username" type="text"  onMouseOver={e => e.target.placeholder=''} onMouseOut={e => e.target.placeholder="Enter a username..."} value={username} onChange={updateUsername}/>
             
             <label htmlFor="categorySelect">Category</label>
             <select name="category" id="categorySelect" required onChange={updateCategory}>
