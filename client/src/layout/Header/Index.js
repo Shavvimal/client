@@ -1,18 +1,13 @@
-// Import and use Leaderboard here
-import React from 'react';
-import './style.css';
-
-
+import React, {useEffect, useRef} from 'react';
+import { NavLink } from 'react-router-dom';
+import './style.css'
 
 const Header = () => {
 
     return (
-
-
-        <p> HumzaqAassasdasdasdaa</p>
+        <p> Shav </p>
 
     );
-
 }
 
 export default Header;
