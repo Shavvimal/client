@@ -3,19 +3,20 @@
 
 ## TODO
 
-[] Landing page - user sees Header with Leaderboard, an invitation to play and a form to submit username and two dropdows for difficulty level and topic, plus Footer
+### MOBILE-FIRST SPEC:
 
-[] Leaderboard is always visible in the Header
+[ ] WelcomePage components: Header (with Leaderboard (5 leaders)) + UserForm + Footer
 
-[] User is then shown 10 Quiz Cards one-by-one with 4 answers to select from and a button "CONTINUE"
+[ ] QuestionPage components: QUIT button/link (top left) + Countdown + QuestionCard with ScoreCounter + Footer
 
-[] Display a counter that adds up the score with every submitted answer
+[ ] Transition Screen - purple card with a 3 seconds counter 
 
-[] After these 10 questions, user gets his/her score displayed in the centre of the screen
+[ ] QuestionCard has ScoreCounter in the top right, a question and 4 choices as 
 
-[] GET request updates Leaderboard at the start and at the end of his/her game (in case the new score is in the top-5 list)
+[ ] ScorePage components: Header (with Leaderboard) + Score card + Footer
 
-[] PUT request sends his/her username and score to be added to the DB
-(edited)
+[ ] Each question will be timed to 10 seconds, the faster the user answers it, the higher the score
 
-[] To decide: "QUIT" option. "HOME" link at the header or "QUIT" button under each card, switching user to Homepage?
+[ ] User chooses between "Easy, Medium and Hard" - and that affects score as well
+
+

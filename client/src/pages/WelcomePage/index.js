@@ -1,6 +1,10 @@
-import axios from 'axios';
+import React, { useState }from "react";
+import { UserForm } from "../../components";
+import axios from "axios";
 
-const [ quiz, setQuiz] = useState([]);
+function WelcomePage(){
+
+    const [ quiz, setQuiz] = useState([]);
     const [ error, setError ] = useState("");
 
     const getQuiz = async (userChoices) => {
@@ -28,3 +32,25 @@ const [ quiz, setQuiz] = useState([]);
             setError("Sorry, no quizzes available!");
         }
     }
+
+    return(
+        <>
+            <UserForm getQuiz={getQuiz}/>
+            {quiz.map((el, index) => {
+                return(
+                    <div key={index}>
+                    <p>{el.question}</p>
+                    <p>Correct answer: {el.correctAnswer}</p>
+                    <p>Incorrect answer 1: {el.incorrectAnswers[0]}</p>
+                    <p>Incorrect answer 2: {el.incorrectAnswers[1]}</p>
+                    <p>Incorrect answer 3: {el.incorrectAnswers[2]}</p>
+                    <br></br>
+                    <br></br>
+                    </div>)
+                })
+            }
+        </>
+    )
+}
+
+export default WelcomePage;
