@@ -1,7 +1,5 @@
-
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 
 const ROOT_DIRECTORY = path.join(__dirname, '../'); // the root of your project
 const PUBLIC_DIRECTORY = path.join(ROOT_DIRECTORY, 'public'); // the root of the frontend, i.e. html file
@@ -17,9 +15,6 @@ const config = {
   mode: 'development', // tells webpack to use its built-in optimizations according to the mode
   resolve: {
     // instructions on how to resolve modules
-    alias: {
-      'path-to-regexp': path.resolve(ROOT_DIRECTORY, 'node_modules', 'react-router', 'node_modules', 'path-to-regexp')
-    },
     modules: [path.resolve('node_modules'), 'node_modules'], // tells webpack where to look for node_modules
   },
   performance: {
@@ -31,8 +26,8 @@ const config = {
     new HtmlWebpackPlugin({
       // used to add the JavaScript code to the HTML
       template: path.join(PUBLIC_DIRECTORY, 'index.html'),
+      favicon: "src/favicon.svg",
     }),
-    new FaviconsWebpackPlugin('src/favicon.png')
   ],
   module: {
     // helpers we want webpack to use
@@ -42,21 +37,13 @@ const config = {
       {
         test: /\.css$/,
         use: ['style-loader', 'css-loader'],
-      }, // transpile css files       
+      }, // transpile css files
       {
         test: /\.(png|svg|jpg|gif|pdf)$/,
-        use: [
-          {
-            loader: 'url-loader',
-            options: {
-              limit: 8192,
-            },
-          }
-        ],
+        use: ['file-loader'],
       }, // transpile image files
     ],
   },
 };
-
 
 module.exports = config;
