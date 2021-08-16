@@ -1,16 +1,16 @@
 import React from 'react';
 
 import { Header, Footer } from './layout';
-import { Welcome } from './pages';
+import { WelcomePage } from './pages';
 import "./style.css";
 
 function App(){
 
   return(
     <>
-    <Header/>
-    <Welcome/>
-    <Footer/>
+      {/* <Header/> */}
+      <WelcomePage/>
+      {/* <Footer/> */}
     </>
   );
 };
