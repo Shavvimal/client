@@ -1,4 +1,7 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux'; // New imports to work with Redux
+import { getResult } from '../../actions';
+
 import './styleHome.css'
 import { NavLink } from 'react-router-dom';
 import { Card } from '../../components'
