@@ -3,7 +3,19 @@
 
 ## TODO
 
-[ ] Landing page - user sees Header with Leaderboard, an invitation to play and a form to submit username and two dropdows for difficulty level and topic, plus Footer
+### MOBILE-FIRST PAGE STRUCTURE and COMPONENTS
+
+[ ] WelcomePage components: Header (with Leaderboard (5 leaders)) + UserForm + Footer
+
+[ ] QuestionPage components: QUIT button/link (top left) + Counter + QuestionCard + Footer
+
+[ ] ScorePage components: Header (with Leaderboard) + Score card + Footer
+
+
+
+DESKTOP VERSION (stretch goal):
+
+[ ] Landing page - user sees Header with Leaderboard, an invitation to play and a form to submit username and two dropdowns for difficulty level and topic, plus Footer
 
 [ ] Leaderboard is always visible in the Header
 
@@ -19,12 +31,3 @@
 (edited)
 
 [ ] To decide: "QUIT" option. "HOME" link at the header or "QUIT" button under each card, switching user to Homepage?
-
-
-### PAGE STRUCTURE
-
-[ ] Welcome page = Header (with Leaderboard) + UserForm + Footer components
-
-[ ] Question page = Header (with Leaderboard) + Counter + QuestionCard + Footer components
-
-[ ] Endscore page = Header (with Leaderboard) + Endscore + Footer components
