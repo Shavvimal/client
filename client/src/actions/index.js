@@ -1,5 +1,7 @@
 import axios from 'axios';
 
+const loading = userEntries => ({ type: 'LOADING', payload: userEntries }); // Can payload be an object??
+
 const [ quiz, setQuiz] = useState([]);
     const [ error, setError ] = useState("");
 
