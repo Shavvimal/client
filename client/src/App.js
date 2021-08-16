@@ -1,18 +1,18 @@
 import React from 'react';
 
-import { Repo } from './pages';
-import { Header } from './layout';
+import { Header, Footer } from './layout';
+import { Welcome } from './pages';
 import "./style.css";
 
 function App(){
 
   return(
     <>
-    <Header />
-    <Repo/>
+    <Header/>
+    <Welcome/>
+    <Footer/>
     </>
   );
-
 };
 
 export default App;
