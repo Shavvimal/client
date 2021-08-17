@@ -23,7 +23,7 @@ const Card = ({ question, correct_answer, incorrect_answers }) => {
         return str
     }
 
-    const renderOptions = () => shuffle((incorrect_answers.concat(correct_answer))).map((t) => <Answer key={replaceAmp(t)} word={replaceAmp(t)} />)
+    const renderOptions = () => shuffle((incorrect_answers.concat(correct_answer))).map((t) => <Answer key={t} word={t} />)
 
     return (
         <>

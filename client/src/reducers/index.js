@@ -1,1 +1,1 @@
-export { default as questionsReducer } from './questionsReducer';
+export { default as questionReducer } from "./questionReducer";

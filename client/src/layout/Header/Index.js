@@ -1,11 +1,17 @@
-import React, {useEffect, useRef} from 'react';
-import { NavLink } from 'react-router-dom';
+import React from 'react';
+import { NavLink, useHistory } from 'react-router-dom';
 import './style.css'
 
 const Header = () => {
-
+    const history = useHistory();
     return (
-        <p> Shav </p>
+        <nav> 
+        <NavLink className="homeLink" exact to="/">Home</NavLink>
+        <NavLink className="leaderBoard" exact to="/">LeaderBoard</NavLink>
+        {/* <button onClick={history.goBack}>Bach</button> */}
+        </nav>
+
     );
 }
+
 export default Header;
