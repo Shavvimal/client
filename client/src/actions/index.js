@@ -34,10 +34,12 @@ export const getQuiz = async (category, difficulty) => {
       `https://opentdb.com/api.php?amount=10&category=${category}&difficulty=${difficulty}&type=multiple`
     );
 
-    return data.results.map((el) => {
+    const array = data.results.map((el) => {
       scrubStr(el.question), scrubStr(el.correct_answer);
       el.incorrect_answers.map((el) => scrubStr(el));
     });
+    console.log(array);
+    return { array };
   } catch (err) {
     if (data.status === 404) {
       throw Error("Quiz not available, sorry");
