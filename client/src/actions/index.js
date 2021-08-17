@@ -1,11 +1,21 @@
 import axios from "axios";
 
-export const loadQuiz = () => {
+export const loadQuiz = (category, difficulty) => {
   return async (dispatch) => {
     try {
+      const { data } = await axios.get(
+        `https://opentdb.com/api.php?amount=10&category=${category}&difficulty=${difficulty}&type=multiple`
+      );
+
+      const target = [];
+      let i = 0
+      while (i < 10) {
+        target.push({ question: data.results[i].question, correctAnswer: data.results[i].correct_answer, incorrectAnswers: data.results[i].incorrect_answers })
+        i++
+      }
       dispatch({
         type: "LOAD_QUIZ",
-        payload: getQuiz,
+        payload: target
       });
     } catch (err) {
       console.warn(err.message);
@@ -27,26 +37,7 @@ export const submitAnswer = (submittedAnswer) => ({
   payload: submittedAnswer,
 });
 
-// Helper function
-export const getQuiz = async (category, difficulty) => {
-  try {
-    const { data } = await axios.get(
-      `https://opentdb.com/api.php?amount=10&category=${category}&difficulty=${difficulty}&type=multiple`
-    );
 
-    const array = data.results.map((el) => {
-      scrubStr(el.question), scrubStr(el.correct_answer);
-      el.incorrect_answers.map((el) => scrubStr(el));
-    });
-    console.log(array);
-    return { array };
-  } catch (err) {
-    if (data.status === 404) {
-      throw Error("Quiz not available, sorry");
-    }
-    throw new Error(err.message);
-  }
-};
 
 // Helper scrubber function
 export const scrubStr = (str) => {
