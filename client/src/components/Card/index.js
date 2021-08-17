@@ -5,28 +5,11 @@ import { shuffle } from "../../actions"
 
 const Card = ({question, correctAnswer, incorrectAnswers}) => {
 
-    console.log("hello from the card component")
-    // console.log(incorrectAnswers);
-
     const answers = [...incorrectAnswers, correctAnswer];
 
     const renderOptions =(arr) =>{
-        let test = shuffle(arr)
-        
-        console.log("shuffle");
-        console.log(test);
-
-        return test;
-
-        // test.map((t, i) =>{
-        //     <Answer key={i} word={t} />
-        // });
-        
-        // incorrectAnswers.map((t,i) => {
-
-        //     <Answer key={i} word={t} />
-
-        // })
+        let shuffledArr = shuffle(arr)
+        return shuffledArr.map((t, i) =><Answer key={i} word={t} />);
     } 
 
     return (
@@ -39,7 +22,7 @@ const Card = ({question, correctAnswer, incorrectAnswers}) => {
                 <p>Incorrect: {incorrectAnswers}  </p>
                 <p>Answers: {answers}</p>
 
-                <p>Shuffled answers: {renderOptions([...incorrectAnswers, correctAnswer])}</p>
+                <p>Shuffled answers: {renderOptions([...answers])}</p>
 
 
 
