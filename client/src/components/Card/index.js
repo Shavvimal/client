@@ -39,7 +39,7 @@ const Card = ({question, correctAnswer, incorrectAnswers}) => {
                 <p>Incorrect: {incorrectAnswers}  </p>
                 <p>Answers: {answers}</p>
 
-                <p>Shuffled answers: {renderOptions([...incorrectAnswers, correctAnswer])}</p>
+                <p>Shuffled answers: {renderOptions([...answers])}</p>
 
 
 
