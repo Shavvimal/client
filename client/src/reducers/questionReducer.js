@@ -1,7 +1,7 @@
 
 const initState = {
   loading: false,
-  questionIndex: 10,
+  questionIndex: 0,
   username: "",
   category: "",
   difficulty: "",
