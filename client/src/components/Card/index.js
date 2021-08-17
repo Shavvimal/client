@@ -1,34 +1,19 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React from 'react';
 import './style.css'
 import { Answer } from '../';
 
-import { shuffle, scrubStr } from "../../actions"
-import { useSelector } from 'react-redux';
+const Card = ({question, correctAnswer, incorrectAnswers}) => {
 
-const Card = (question, correctAnswer, incorrectAnswers) => {
+    console.log("hello from the card component")
+    console.log(incorrectAnswers);
 
-    // const shuffle = (arr) => {
-    //     let c = arr.length, rand;
-    //     while (0 !== c) {
-    //         rand = Math.floor(Math.random() * c);
-    //         c--;
-    //         [arr[c], arr[rand]] = [
-    //             arr[rand], arr[c]];
-    //     }
-    //     return arr;
-    // }
+    // const renderOptions =() =>{
+    //     incorrectAnswers.map((t,i) => {
 
+    //         <Answer key={i} word={t} />
 
-    // let replaceAmp = (str) => {
-    //     str = str.replaceAll("&quot;", "\"");
-    //     str = str.replaceAll("&amp; ", " & ");
-    //     str = str.replaceAll("&#039;", "'");
-    //     return str
-    // }
-
-    // const incorrectAnswers = useSelector(state => state.result.);
-    console.log(question, correctAnswer, incorrectAnswers);
-    const renderOptions = () => shuffle((incorrectAnswers.push(correctAnswer))).map((t) => <Answer key={t} word={t} />)
+    //     })
+    // } 
 
     return (
         <>
@@ -38,7 +23,7 @@ const Card = (question, correctAnswer, incorrectAnswers) => {
                 <h2> {question} </h2>
                 <p>Correct: {correctAnswer}  </p>
 
-                {renderOptions()}
+                {/* {renderOptions()} */}
 
 
 
