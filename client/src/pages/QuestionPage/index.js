@@ -7,8 +7,7 @@ import { scrubStr } from "../../actions"
 const QuestionPage = () => {
 
     const results = useSelector(state => state.result);
-    console.log(results)
-    
+      
     const renderCards = data => data.map((qn, i) => <Card question={scrubStr(qn.question)} key={i} incorrectAnswers={qn.incorrectAnswers.map(el => scrubStr(el))} correctAnswer={scrubStr(qn.correctAnswer)} />)
 
     return (
