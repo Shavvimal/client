@@ -1,39 +1,69 @@
-import axios from 'axios';
+import axios from "axios";
 
-const [quiz, setQuiz] = useState([]);
-const [error, setError] = useState("");
-
-let replaceAmp = (str) => {
-    str = str.replaceAll("&quot;", "\"");
-    str = str.replaceAll("&amp; ", " & ");
-    str = str.replaceAll("&#039;", "'");
-    return str
-}
-
-
-export const getQuiz =
-
-    async (userChoices) => {
-        try {
-            setError(null);
-            let { data } = await axios.get(`https://opentdb.com/api.php?amount=10&category=${userChoices.category}&difficulty=${userChoices.difficulty}&type=multiple`);
-
-            if (!data.results.length) {
-                setError("Sorry, no quizzes available!")
-            }
-            else {
-                let quizArray = data.results.map(el => {
-
-                    let question = replaceAmp(el.question);
-                    let correctAnswer = el.correct_answer;
-                    let incorrectAnswers = el.incorrect_answers.map(el => replaceAmp(el)); // an array
-                    return { question, correctAnswer, incorrectAnswers };
-                });
-                setQuiz(quizArray);
-                console.log(quizArray);
-            }
-        } catch (err) {
-            console.warn(err.message);
-            setError("Sorry, no quizzes available!");
-        }
+export const loadQuiz = () => {
+  return async (dispatch) => {
+    try {
+      dispatch({
+        type: "LOAD_QUIZ",
+        payload: getQuiz,
+      });
+    } catch (err) {
+      console.warn(err.message);
+      dispatch({
+        type: "SET_ERROR",
+        payload: err.message,
+      });
     }
+  };
+};
+
+export const addUsername = (username) => ({
+  type: "ADD_USERNAME",
+  payload: username,
+});
+
+export const submitAnswer = (submittedAnswer) => ({
+  type: "ANSWER_SUBMIT",
+  payload: submittedAnswer,
+});
+
+// Helper function
+export const getQuiz = async (category, difficulty) => {
+  try {
+    const { data } = await axios.get(
+      `https://opentdb.com/api.php?amount=10&category=${category}&difficulty=${difficulty}&type=multiple`
+    );
+
+    return data.results.map((el) => {
+      scrubStr(el.question), scrubStr(el.correct_answer);
+      el.incorrect_answers.map((el) => scrubStr(el));
+    });
+  } catch (err) {
+    if (data.status === 404) {
+      throw Error("Quiz not available, sorry");
+    }
+    throw new Error(err.message);
+  }
+};
+
+// Helper scrubber function
+export const scrubStr = (str) => {
+  const cleanStr = str
+    .replaceAll("&quot;", "'")
+    .replaceAll("&#039", "'")
+    .replaceAll("&eacute;", "e")
+    .replaceAll("&amp; ", " & ");
+  return cleanStr;
+};
+
+//Helper Shuffle function
+export const shuffle = (arr) => {
+  let c = arr.length,
+    rand;
+  while (0 !== c) {
+    rand = Math.floor(Math.random() * c);
+    c--;
+    [arr[c], arr[rand]] = [arr[rand], arr[c]];
+  }
+  return arr;
+};
