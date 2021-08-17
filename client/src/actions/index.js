@@ -37,11 +37,23 @@ export const getQuiz = async (category, difficulty) => {
 };
 
 // Helper scrubber function
-const scrubStr = (str) => {
+export const scrubStr = (str) => {
   const cleanStr = str
     .replaceAll("&quot;", "'")
     .replaceAll("&#039", "'")
     .replaceAll("&eacute;", "e")
     .replaceAll("&amp; ", " & ");
   return cleanStr;
+};
+
+//Helper Shuffle function
+export const shuffle = (arr) => {
+  let c = arr.length,
+    rand;
+  while (0 !== c) {
+    rand = Math.floor(Math.random() * c);
+    c--;
+    [arr[c], arr[rand]] = [arr[rand], arr[c]];
+  }
+  return arr;
 };
