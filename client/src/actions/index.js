@@ -1,5 +1,6 @@
 import axios from "axios";
 
+
 export const loadQuiz = (category, difficulty) => {
   return async (dispatch) => {
     try {
@@ -28,6 +29,14 @@ export const loadQuiz = (category, difficulty) => {
       dispatch({
         type: "LOAD_QUIZ",
         payload: target
+
+export const loadQuiz = () => {
+  return async (dispatch) => {
+    try {
+      dispatch({
+        type: "LOAD_QUIZ",
+        payload: getQuiz,
+
       });
     } catch (err) {
       console.warn(err.message);
@@ -35,6 +44,7 @@ export const loadQuiz = (category, difficulty) => {
         type: "SET_ERROR",
         payload: err.message,
       });
+
     }
   };
 };
@@ -48,6 +58,7 @@ export const submitAnswer = (submittedAnswer) => ({
   type: "ANSWER_SUBMIT",
   payload: submittedAnswer,
 });
+
 
 
 
