@@ -1,6 +1,5 @@
 import axios from "axios";
 
-
 export const loadQuiz = (category, difficulty) => {
   return async (dispatch) => {
     try {
@@ -17,14 +16,6 @@ export const loadQuiz = (category, difficulty) => {
       dispatch({
         type: "LOAD_QUIZ",
         payload: target
-
-export const loadQuiz = () => {
-  return async (dispatch) => {
-    try {
-      dispatch({
-        type: "LOAD_QUIZ",
-        payload: getQuiz,
-
       });
     } catch (err) {
       console.warn(err.message);
@@ -32,7 +23,6 @@ export const loadQuiz = () => {
         type: "SET_ERROR",
         payload: err.message,
       });
-
     }
   };
 };
@@ -49,7 +39,6 @@ export const submitAnswer = (submittedAnswer) => ({
 
 
 
-
 // Helper scrubber function
 export const scrubStr = (str) => {
   const cleanStr = str
@@ -62,11 +51,11 @@ export const scrubStr = (str) => {
 
 //Helper Shuffle function - not working
 export const shuffle = (arr) => {
-  let c = arr.length; 
-  let rand; 
+  let c = arr.length;
+  let rand;
   while (c !== 0) {
-    rand = Math.floor(Math.random() * c); 
-    c--; 
+    rand = Math.floor(Math.random() * c);
+    c--;
     [arr[c], arr[rand]] = [arr[rand], arr[c]];
   }
   return arr;
