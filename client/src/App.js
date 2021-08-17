@@ -8,13 +8,14 @@ function App() {
   return (
     <>
       <Header />
-      <Switch />
+      <Switch >
         <Route exact path="/">
           <WelcomePage />
         </Route>
-        <Route path="/QuestionPage">
+        <Route path="/">
           <QuestionPage />
-        </Route>      
+        </Route>
+      </Switch>      
     </>
   );
 }
