@@ -1,30 +1,47 @@
 import axios from 'axios';
 
-const [ quiz, setQuiz] = useState([]);
-    const [ error, setError ] = useState("");
 
-    const getQuiz = async (userChoices) => {
-        try{
-            setError(null);
-            let { data }  = await axios.get(`https://opentdb.com/api.php?amount=10&category=${userChoices.category}&difficulty=${userChoices.difficulty}&type=multiple`);
-
-            if (!data.results.length){
-                setError("Sorry, no quizzes available!")
-            }
-            else {
-                let quizArray = data.results.map(el => {
-
-                    let questionTemp = el.question.replaceAll('&quot;', "'");
-                    let question = questionTemp.replaceAll('&#039;', "'");
-                    let correctAnswer = el.correct_answer;
-                    let incorrectAnswers = el.incorrect_answers.map(el => el.replaceAll('&#039;', "'")); // an array
-                    return {question, correctAnswer, incorrectAnswers};
-                    });
-                    setQuiz(quizArray);
-                    console.log(quizArray);
-            }
-        } catch(err) {
+export const loadQuiz = () => { 
+    return async dispatch  => {
+        try {
+            dispatch({
+                type: "LOAD_QUIZ",
+                payload: getQuiz
+            });
+        } catch (err) {
             console.warn(err.message);
-            setError("Sorry, no quizzes available!");
+            dispatch({
+                type: "SET_ERROR",
+                payload: err.message
+            })
         }
     }
+};
+
+
+
+
+// Helper function
+export const getQuiz = async (category, difficulty) => {
+    try{
+        const { data }  = await axios.get(`https://opentdb.com/api.php?amount=10&category=${category}&difficulty=${difficulty}&type=multiple`);
+
+        return data.results.map(el => {
+            scrubStr(el.question),
+            scrubStr(el.correct_answer);
+            el.incorrect_answers.map(el => scrubStr(el));
+            });
+            
+    } catch (err) {
+        if (data.status === 404) {
+            throw Error ('Quiz not available, sorry')
+        }
+        throw new Error (err.message);
+    }
+}
+
+// Helper scrubber function
+const scrubStr = (str) => {
+    const cleanStr = str.replaceAll('&quot;', "'").replaceAll('&#039', "'").replaceAll('&eacute;', "e");
+    return cleanStr
+}
