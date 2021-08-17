@@ -15,10 +15,10 @@ const questionReducer = (state = initState, action) => {
     case "ADD_USERNAME":
       return { ...state, username: action.payload, error: false };
     case "ANSWER_SUBMIT":
-      if (action.payload === state.result[questionIndex].correctAnswer) {
-        return { ...state, score: state.score++, questionIndex: state.questionIndex++ };
+      if (action.payload === state.result[state.questionIndex].correctAnswer) {
+        return { ...state, score: state.score + 1, questionIndex: state.questionIndex + 1 };
       }
-      return { ...state, questionIndex: state.questionIndex++ };
+      return { ...state, questionIndex: state.questionIndex + 1 };
 
     case "SET_ERROR":
       return { ...state, error: action.payload };
@@ -27,5 +27,8 @@ const questionReducer = (state = initState, action) => {
       return state;
   }
 };
+
+// type: "LOAD_QUIZ",
+// payload: ["What is my name?", "Humza", ["Shav", "Polina", "Sammie"]]
 
 export default questionReducer;
