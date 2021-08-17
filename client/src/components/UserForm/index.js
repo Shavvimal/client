@@ -2,27 +2,33 @@ import React, { useState } from "react";
 import { loadQuiz } from "../../actions";
 import { useDispatch } from "react-redux";
 function UserForm() {
+
     const [username, setUsername] = useState("");
     const [category, setCategory] = useState("");
     const [difficulty, setDifficulty] = useState("");
     const dispatch = useDispatch();
+
     const handleSubmit = (e) => {
         e.preventDefault();
         // const quizRequest = { category, difficulty };
         dispatch(loadQuiz(category, difficulty));
     };
+
     const updateUsername = (e) => {
         const input = e.target.value;
         setUsername(input);
     };
+
     const updateCategory = (e) => {
         const input = e.target.value;
         setCategory(input);
     };
+
     const updateDifficulty = (e) => {
         const input = e.target.value;
         setDifficulty(input);
     };
+    
     return (
         <form role='form' onSubmit={handleSubmit}>
             <label htmlFor='username'>Username</label>
