@@ -35,7 +35,7 @@ function WelcomePage() {
   return (
     <>
       <UserForm getQuiz={getQuiz} />
-      {quiz.map((el, index) => {
+      {/* {quiz.map((el, index) => {
         return (
           <div key={index}>
             <p>{el.question}</p>
@@ -47,7 +47,7 @@ function WelcomePage() {
             <br></br>
           </div>
         );
-      })}
+      })} */}
     </>
   );
 }
