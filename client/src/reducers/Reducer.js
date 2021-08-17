@@ -2,11 +2,12 @@ const initState = { loading: false,
                     category: "", 
                     difficulty: "", 
                     result: [
-                                { question: "",
-                                correctAnswer: "",
-                                incorrectAnswers: []
+                                {   
+                                    question: "",
+                                    correctAnswer: "",
+                                    incorrectAnswers: []
                                 }
-                                                        ]
+                    ]
 };
 
 const Reducer = (state=initState, action) => {
