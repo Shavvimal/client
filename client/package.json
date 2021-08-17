@@ -1,7 +1,7 @@
 {
   "name": "quizzo",
   "version": "1.0.0",
-  "description": "[Redux](https://github.com/getfutureproof/fp_guides_wiki/wiki/Redux)",
+  "description": "Trivia Quiz project with React and Express",
   "dependencies": {
     "@babel/core": "^7.12.9",
     "@babel/preset-env": "^7.12.7",
