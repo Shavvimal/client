@@ -1,19 +1,33 @@
 import React from 'react';
 import './style.css'
 import { Answer } from '../';
+import { shuffle } from "../../actions"
 
 const Card = ({question, correctAnswer, incorrectAnswers}) => {
 
     console.log("hello from the card component")
-    console.log(incorrectAnswers);
+    // console.log(incorrectAnswers);
 
-    // const renderOptions =() =>{
-    //     incorrectAnswers.map((t,i) => {
+    const answers = [...incorrectAnswers, correctAnswer];
 
-    //         <Answer key={i} word={t} />
+    const renderOptions =(arr) =>{
+        let test = shuffle(arr)
+        
+        console.log("shuffle");
+        console.log(test);
 
-    //     })
-    // } 
+        return test;
+
+        // test.map((t, i) =>{
+        //     <Answer key={i} word={t} />
+        // });
+        
+        // incorrectAnswers.map((t,i) => {
+
+        //     <Answer key={i} word={t} />
+
+        // })
+    } 
 
     return (
         <>
@@ -22,8 +36,10 @@ const Card = ({question, correctAnswer, incorrectAnswers}) => {
                 <h1> Question #</h1>
                 <h2> {question} </h2>
                 <p>Correct: {correctAnswer}  </p>
+                <p>Incorrect: {incorrectAnswers}  </p>
+                <p>Answers: {answers}</p>
 
-                {/* {renderOptions()} */}
+                <p>Shuffled answers: {renderOptions([...incorrectAnswers, correctAnswer])}</p>
 
 
 

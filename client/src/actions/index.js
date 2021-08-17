@@ -51,11 +51,11 @@ export const scrubStr = (str) => {
 
 //Helper Shuffle function - not working
 export const shuffle = (arr) => {
-  let c = arr.length,
-    rand;
-  while (0 !== c) {
-    rand = Math.floor(Math.random() * c);
-    c--;
+  let c = arr.length; 
+  let rand; 
+  while (c !== 0) {
+    rand = Math.floor(Math.random() * (c + 1)); 
+    c--; 
     [arr[c], arr[rand]] = [arr[rand], arr[c]];
   }
   return arr;
