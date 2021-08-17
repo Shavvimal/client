@@ -31,6 +31,11 @@ const questionReducer = (state = initState, action) => {
 };
 
 // type: "LOAD_QUIZ",
-// payload: ["What is my name?", "Humza", ["Shav", "Polina", "Sammie"]]
+// payload: [{question: "What is my name?", correctAnswer:"Humza", incorrectAnswers:["Shav", "Polina", "Sammie"]}]
+
+// type: "ANSWER_SUBMIT",
+// payload: "Humza"
+
+
 
 export default questionReducer;
