@@ -6,8 +6,6 @@ const Header = () => {
 
     return (
         <p> Shav </p>
-
     );
 }
-
 export default Header;
