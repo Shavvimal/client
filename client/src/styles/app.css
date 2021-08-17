@@ -29,16 +29,16 @@ p {
 ::-webkit-scrollbar-track {
   /* margin-right: 5px; */
   margin: 0.5;
-  background: #ffffff;
+  background: #64dfdf;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background-image: linear-gradient(0deg, #318aff, #b633fd);
+  background: #48bfe3;
   border-radius: 100px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background-image: linear-gradient(0deg, #f65ee6, #feab53);
+  background: #6930c3;
 }
