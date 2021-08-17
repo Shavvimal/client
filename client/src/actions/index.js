@@ -17,6 +17,16 @@ export const loadQuiz = () => {
   };
 };
 
+export const addUsername = (username) => ({
+  type: "ADD_USERNAME",
+  payload: username,
+});
+
+export const submitAnswer = (submittedAnswer) => ({
+  type: "ANSWER_SUBMIT",
+  payload: submittedAnswer,
+});
+
 // Helper function
 export const getQuiz = async (category, difficulty) => {
   try {
