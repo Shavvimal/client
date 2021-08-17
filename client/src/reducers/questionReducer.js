@@ -1,3 +1,4 @@
+
 const initState = {
   loading: false,
   questionIndex: 0,
@@ -6,6 +7,7 @@ const initState = {
   difficulty: "",
   result: [{ question: "", correctAnswer: "", incorrectAnswers: [] }],
   score: 0,
+
 };
 
 const questionReducer = (state = initState, action) => {
