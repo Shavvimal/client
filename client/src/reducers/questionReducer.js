@@ -1,8 +1,15 @@
-const initState = {
-  loading: false,
-  category: "",
-  difficulty: "",
-  result: [{ question: "", correctAnswer: "", incorrectAnswers: [] }],
+
+const initState = { loading: false, 
+                    category: "", 
+                    difficulty: "", 
+                    result: [
+                                {   
+                                    question: "",
+                                    correctAnswer: "",
+                                    incorrectAnswers: []
+                                }
+                    ]
+
 };
 
 const questionReducer = (state = initState, action) => {
