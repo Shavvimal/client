@@ -2,13 +2,14 @@ import React from 'react';
 import { useSelector } from 'react-redux'; // New imports to work with Redux
 import './styleHome.css'
 import { Card } from '../../components'
+import { scrubStr } from "../../actions"
 
 const QuestionPage = () => {
 
     const results = useSelector(state => state.result);
     console.log(results)
     
-    const renderCards = data => data.map((qn, i) => <Card question={qn.question} key={i} incorrectAnswers={qn.incorrectAnswers} correctAnswer={qn.correctAnswer} />)
+    const renderCards = data => data.map((qn, i) => <Card question={scrubStr(qn.question)} key={i} incorrectAnswers={qn.incorrectAnswers.map(el => scrubStr(el))} correctAnswer={scrubStr(qn.correctAnswer)} />)
 
     return (
 

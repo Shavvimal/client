@@ -19,7 +19,11 @@ const Card = ({question, correctAnswer, incorrectAnswers}) => {
         return test;
 
         // test.map((t, i) =>{
-        //     <Answer key={i} word={t} />
+
+
+            
+
+
         // });
         
         // incorrectAnswers.map((t,i) => {
