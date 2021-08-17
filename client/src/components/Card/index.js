@@ -1,39 +1,29 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React from 'react';
 import './style.css'
 import { Answer } from '../';
+import { shuffle } from "../../actions"
 
-const Card = ({ question, correct_answer, incorrect_answers }) => {
+const Card = ({ question, correctAnswer, incorrectAnswers }) => {
 
-    const shuffle = (arr) => {
-        let c = arr.length, rand;
-        while (0 !== c) {
-            rand = Math.floor(Math.random() * c);
-            c--;
-            [arr[c], arr[rand]] = [
-                arr[rand], arr[c]];
-        }
-        return arr;
+    const answers = [...incorrectAnswers, correctAnswer];
+
+    const renderOptions = (arr) => {
+        let shuffledArr = shuffle(arr)
+        return shuffledArr.map((t, i) => <Answer key={i} word={t} />);
     }
-
-
-    let replaceAmp = (str) => {
-        str = str.replaceAll("&quot;", "\"");
-        str = str.replaceAll("&amp; ", " & ");
-        str = str.replaceAll("&#039;", "'");
-        return str
-    }
-
-    const renderOptions = () => shuffle((incorrect_answers.concat(correct_answer))).map((t) => <Answer key={t} word={t} />)
 
     return (
         <>
-            <div className="border-4 rounded-lg mx-10 p-10 my-3 flex flex-col">
+            <div className="border bg-white shadow-xl rounded-lg mx-10 p-10 my-3 flex flex-col leading-9 h-1/2 ">
                 <p className="text-right"> Score: </p>
                 <h1> Question #</h1>
-                <h2> {replaceAmp(question)} </h2>
-                <p>Correct: {correct_answer}  </p>
+                <h2> {question} </h2>
+                <p>Correct: {correctAnswer}  </p>
+                <p>Incorrect: {incorrectAnswers}  </p>
+                <p>Answers: {answers}</p>
 
-                {renderOptions()}
+                <p>Shuffled answers:</p>
+                {renderOptions([...answers])}
 
 
 

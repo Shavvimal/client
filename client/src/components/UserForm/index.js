@@ -1,28 +1,37 @@
 import React, { useState } from "react";
 import { loadQuiz } from "../../actions";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
 function UserForm() {
+
     const [username, setUsername] = useState("");
     const [category, setCategory] = useState("");
     const [difficulty, setDifficulty] = useState("");
     const dispatch = useDispatch();
+    const history =useHistory();
+
     const handleSubmit = (e) => {
         e.preventDefault();
         // const quizRequest = { category, difficulty };
         dispatch(loadQuiz(category, difficulty));
+        history.push("/QuestionPage")
     };
+
     const updateUsername = (e) => {
         const input = e.target.value;
         setUsername(input);
     };
+
     const updateCategory = (e) => {
         const input = e.target.value;
         setCategory(input);
     };
+
     const updateDifficulty = (e) => {
         const input = e.target.value;
         setDifficulty(input);
     };
+
     return (
         <form role='form' onSubmit={handleSubmit}>
             <label htmlFor='username'>Username</label>
