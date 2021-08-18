@@ -22,10 +22,10 @@ const QuestionCurrentPage = () => {
 
     if (currentQuestionIndex < 9) {
         return (
-            <div classNameName="border rounded-xl bg-white w-11/12 h-5/6 m-auto mt-20 px-10 py-5 shadow-xl">
-                <div classNameName="flex flex-row justify-between ">
-                    <h1 classNameName="">Question {currentQuestionIndex + 1} </h1>
-                    <h3 classNameName=" ">Score {currentScore} </h3>
+            <div className="border rounded-xl bg-white w-11/12 h-5/6 m-auto mt-20 px-10 py-5 shadow-xl">
+                <div className="flex flex-row justify-between ">
+                    <h1 className="">Question {currentQuestionIndex + 1} </h1>
+                    <h3 className=" ">Score {currentScore} </h3>
                 </div>
 
                 <br />
