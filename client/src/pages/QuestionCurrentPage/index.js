@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux"; // New imports to work w
 import "./styleHome.css";
 import { Card } from "../../components";
 import { scrubStr, shuffle, resetState } from "../../actions";
-import { Answer } from "../../components";
+import { Answer, Transition } from "../../components";
 import { useHistory } from "react-router";
 
 const QuestionCurrentPage = () => {
@@ -17,10 +17,15 @@ const QuestionCurrentPage = () => {
     dispatch(resetState());
     history.push("/");
   }
+  function goLeaderboard() {
+    dispatch(resetState());
+    history.push("/Leaderboard");
+  }
 
   if (currentQuestionIndex <= 9) {
-
-    const answers = shuffle([...results[currentQuestionIndex].incorrectAnswers, results[currentQuestionIndex].correctAnswer,
+    const answers = shuffle([
+      ...results[currentQuestionIndex].incorrectAnswers,
+      results[currentQuestionIndex].correctAnswer,
     ]);
 
     console.log(currentQuestionIndex);
@@ -43,6 +48,8 @@ const QuestionCurrentPage = () => {
             <Answer key={i} word={t} />
           ))}
         </p>
+
+        <Transition />
         {/* {renderCards(results)}; */}
       </div>
     );
@@ -53,11 +60,12 @@ const QuestionCurrentPage = () => {
         <h1 className=''>You're finished now, go Home </h1>
         <h3 className=' '>Final Score: {currentScore} /10 </h3>
 
-
         <button className='border mx-auto px-4 py-1 rounded-full bg-purple-500 text-white' onClick={goHome}>
           Home
         </button>
-        <button className='border mx-auto px-4 py-1 rounded-full bg-purple-500 text-white'>Leaderboard </button>
+        <button className='border mx-auto px-4 py-1 rounded-full bg-purple-500 text-white' onClick={goLeaderboard}>
+          Leaderboard{" "}
+        </button>
       </div>
     );
   }
