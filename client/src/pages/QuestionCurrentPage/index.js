@@ -63,7 +63,7 @@ const QuestionCurrentPage = () => {
                                                 }}
                                                   key ={key}
                                                   isPlaying
-                                                  duration={10}
+                                                  duration={15}
                                                   colors={[
                                                     ['#004777', 0.33],
                                                     ['#F7B801', 0.33],
