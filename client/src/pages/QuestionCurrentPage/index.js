@@ -2,11 +2,9 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux"; // New imports to work with Redux
 import "./styleHome.css";
 import { Card } from "../../components";
-import { scrubStr, shuffle, resetState, submitAnswer } from "../../actions";
+import { scrubStr, shuffle, resetState } from "../../actions";
 import { Answer, Transition } from "../../components";
 import { useHistory } from "react-router";
-// import Countdown from 'react-countdown';
-import { CountdownCircleTimer } from 'react-countdown-circle-timer'
 import axios from 'axios';
 
 const QuestionCurrentPage = () => {
@@ -55,16 +53,8 @@ const QuestionCurrentPage = () => {
     console.log(currentQuestionIndex);
     return (
       <div className='border rounded-xl bg-white w-11/12 h-5/6 m-auto mt-20 px-10 py-5 shadow-xl'>
-      <h1><CountdownCircleTimer onComplete={()=>{dispatch(submitAnswer("")); return [true, 100]}}
-    isPlaying
-    duration={10}
-    colors={[
-      ['#004777', 0.33],
-      ['#F7B801', 0.33],
-      ['#A30000', 0.33],
-    ]}>{({ remainingTime }) => remainingTime}</CountdownCircleTimer></h1><br></br>
         <div className='flex flex-row justify-between '>
-          <h1 className=''>Question {currentQuestionIndex + 1}</h1>
+          <h1 className=''>Question {currentQuestionIndex + 1} </h1>
           <h3 className=' '>Score {currentScore} </h3>
         </div>
 
