@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { loadQuiz, addUsername } from "../../actions";
+import { loadQuiz, addUsername, updateDifficulty } from "../../actions";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 function UserForm() {
@@ -15,6 +15,7 @@ function UserForm() {
         // const quizRequest = { category, difficulty };
         dispatch(loadQuiz(category, difficulty));
         dispatch(addUsername(username));
+        dispatch(updateDifficulty(difficulty));
         history.push("/QuestionPage")
     };
 
@@ -28,7 +29,7 @@ function UserForm() {
         setCategory(input);
     };
 
-    const updateDifficulty = (e) => {
+    const sendDifficulty = (e) => {
         const input = e.target.value;
         setDifficulty(input);
     };
@@ -59,7 +60,7 @@ function UserForm() {
                 <option value='15'>Video Games</option>
             </select>
             <label htmlFor='difficultySelect'>Difficulty</label>
-            <select name='difficulty' id='difficultySelect' required onChange={updateDifficulty}>
+            <select name='difficulty' id='difficultySelect' required onChange={sendDifficulty}>
                 <option value=''>--Please choose an option--</option>
                 <option value='easy'>Easy</option>
                 <option value='medium'>Medium</option>
