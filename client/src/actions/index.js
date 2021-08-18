@@ -8,14 +8,18 @@ export const loadQuiz = (category, difficulty) => {
       );
 
       const target = [];
-      let i = 0
+      let i = 0;
       while (i < 10) {
-        target.push({ question: data.results[i].question, correctAnswer: data.results[i].correct_answer, incorrectAnswers: data.results[i].incorrect_answers })
-        i++
+        target.push({
+          question: data.results[i].question,
+          correctAnswer: data.results[i].correct_answer,
+          incorrectAnswers: data.results[i].incorrect_answers,
+        });
+        i++;
       }
       dispatch({
         type: "LOAD_QUIZ",
-        payload: target
+        payload: target,
       });
     } catch (err) {
       console.warn(err.message);
@@ -37,23 +41,26 @@ export const submitAnswer = (submittedAnswer) => ({
   payload: submittedAnswer,
 });
 
-
+export const resetState = () => ({
+  type: "RESET",
+  payload: { questionIndex: 0, username: "", score: 0 },
+});
 
 // Helper scrubber function
 export const scrubStr = (str) => {
   const cleanStr = str
     .replaceAll("&quot;", "'")
-    .replaceAll("&#039", "'")
+    .replaceAll("&#039;", "'")
     .replaceAll("&eacute;", "e")
     .replaceAll("&amp; ", " & ");
   return cleanStr;
 };
 
-//Helper Shuffle function
+//Helper Shuffle function - not working
 export const shuffle = (arr) => {
-  let c = arr.length,
-    rand;
-  while (0 !== c) {
+  let c = arr.length;
+  let rand;
+  while (c !== 0) {
     rand = Math.floor(Math.random() * c);
     c--;
     [arr[c], arr[rand]] = [arr[rand], arr[c]];

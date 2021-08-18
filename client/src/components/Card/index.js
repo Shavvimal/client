@@ -1,44 +1,29 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React from 'react';
 import './style.css'
 import { Answer } from '../';
+import { shuffle } from "../../actions"
 
-import { shuffle, scrubStr } from "../../actions"
-import { useSelector } from 'react-redux';
+const Card = ({ question, correctAnswer, incorrectAnswers }) => {
 
-const Card = (question, correctAnswer, incorrectAnswers) => {
+    const answers = [...incorrectAnswers, correctAnswer];
 
-    // const shuffle = (arr) => {
-    //     let c = arr.length, rand;
-    //     while (0 !== c) {
-    //         rand = Math.floor(Math.random() * c);
-    //         c--;
-    //         [arr[c], arr[rand]] = [
-    //             arr[rand], arr[c]];
-    //     }
-    //     return arr;
-    // }
-
-
-    // let replaceAmp = (str) => {
-    //     str = str.replaceAll("&quot;", "\"");
-    //     str = str.replaceAll("&amp; ", " & ");
-    //     str = str.replaceAll("&#039;", "'");
-    //     return str
-    // }
-
-    // const incorrectAnswers = useSelector(state => state.result.);
-    console.log(question, correctAnswer, incorrectAnswers);
-    const renderOptions = () => shuffle((incorrectAnswers.push(correctAnswer))).map((t) => <Answer key={t} word={t} />)
+    const renderOptions = (arr) => {
+        let shuffledArr = shuffle(arr)
+        return shuffledArr.map((t, i) => <Answer key={i} word={t} />);
+    }
 
     return (
         <>
-            <div className="border-4 rounded-lg mx-10 p-10 my-3 flex flex-col">
+            <div className="border bg-white shadow-xl rounded-lg mx-10 p-10 my-3 flex flex-col leading-9 ">
                 <p className="text-right"> Score: </p>
                 <h1> Question #</h1>
                 <h2> {question} </h2>
                 <p>Correct: {correctAnswer}  </p>
+                <p>Incorrect: {incorrectAnswers}  </p>
+                <p>Answers: {answers}</p>
+                <p>Shuffled answers:</p> 
+                {renderOptions([...answers])}
 
-                {renderOptions()}
 
 
 

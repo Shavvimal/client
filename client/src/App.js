@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Switch, Route } from 'react-router-dom';
 import { Header } from "./layout";
-import { QuestionPage, WelcomePage } from "./pages";
+import { QuestionPage, WelcomePage, QuestionCurrentPage } from "./pages";
 import "./styles/app.css";
 
 function App() {
@@ -12,10 +12,11 @@ function App() {
         <Route exact path="/">
           <WelcomePage />
         </Route>
-        <Route path="/">
-          <QuestionPage />
+        <Route exact path="/QuestionPage">
+          <QuestionCurrentPage />
+          {/* <QuestionPage /> */}
         </Route>
-      </Switch>      
+      </Switch>
     </>
   );
 }
