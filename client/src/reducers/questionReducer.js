@@ -103,6 +103,8 @@ const questionReducer = (state = initState, action) => {
       return { ...state, result: action.payload, error: false };
     case "ADD_USERNAME":
       return { ...state, username: action.payload, error: false };
+    case "ADD_DIFFICULTY":
+      return { ...state, difficulty: action.payload, error: false };
     case "ANSWER_SUBMIT":
       if (action.payload === state.result[state.questionIndex].correctAnswer) {
         return { ...state, score: state.score + 1, questionIndex: state.questionIndex + 1 };

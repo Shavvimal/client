@@ -36,6 +36,11 @@ export const addUsername = (username) => ({
   payload: username,
 });
 
+export const updateDifficulty = (difficulty) => ({
+  type: "ADD_DIFFICULTY",
+  payload: difficulty,
+});
+
 export const submitAnswer = (submittedAnswer) => ({
   type: "ANSWER_SUBMIT",
   payload: submittedAnswer,

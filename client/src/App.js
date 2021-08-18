@@ -3,7 +3,6 @@ import { Switch, Route } from 'react-router-dom';
 import { Header } from "./layout";
 import { QuestionPage, WelcomePage, QuestionCurrentPage } from "./pages";
 import "./styles/app.css";
-import { ScoreCounter } from "./components";
 
 function App() {
   return (
@@ -12,7 +11,6 @@ function App() {
       <Switch >
         <Route exact path="/">
           <WelcomePage />
-          <ScoreCounter/>
         </Route>
         <Route exact path="/QuestionPage">
           <QuestionCurrentPage />
