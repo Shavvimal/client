@@ -14,15 +14,15 @@ const QuestionCurrentPage = () => {
   const dispatch = useDispatch();
 
   function goHome() {
-    // dispatch(resetState());
+    dispatch(resetState());
     history.push("/");
   }
 
   if (currentQuestionIndex <= 9) {
-    const answers = shuffle([
-      ...results[currentQuestionIndex].incorrectAnswers,
-      results[currentQuestionIndex].correctAnswer,
+
+    const answers = shuffle([...results[currentQuestionIndex].incorrectAnswers, results[currentQuestionIndex].correctAnswer,
     ]);
+
     console.log(currentQuestionIndex);
     return (
       <div className='border rounded-xl bg-white w-11/12 h-5/6 m-auto mt-20 px-10 py-5 shadow-xl'>
