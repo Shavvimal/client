@@ -21,7 +21,7 @@ const QuestionCurrentPage = () => {
         return shuffledArr.map((t, i) => <Answer key={i} word={scrubStr(t)} />);
     }
 
-    if (currentQuestionIndex < 5) {
+    if (currentQuestionIndex < 9) {
         return (
             <div class="border rounded-xl bg-white w-11/12 h-5/6 m-auto mt-20 px-10 py-5 shadow-xl">
                 <div class="flex flex-row justify-between ">
