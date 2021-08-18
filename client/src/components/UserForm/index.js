@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { loadQuiz } from "../../actions";
-import { useDispatch, useSelector } from "react-redux";
+import { loadQuiz, addUsername } from "../../actions";
+import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 function UserForm() {
 
@@ -14,6 +14,7 @@ function UserForm() {
         e.preventDefault();
         // const quizRequest = { category, difficulty };
         dispatch(loadQuiz(category, difficulty));
+        dispatch(addUsername(username));
         history.push("/QuestionPage")
     };
 
