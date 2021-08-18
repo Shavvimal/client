@@ -1,8 +1,8 @@
 import React from "react";
-import { useSelector } from "react-redux"; // New imports to work with Redux
+import { useSelector, useDispatch } from "react-redux"; // New imports to work with Redux
 import "./styleHome.css";
 import { Card } from "../../components";
-import { scrubStr, shuffle } from "../../actions";
+import { scrubStr, shuffle, resetState } from "../../actions";
 import { Answer } from "../../components";
 import { useHistory } from "react-router";
 
@@ -11,8 +11,10 @@ const QuestionCurrentPage = () => {
   const currentQuestionIndex = useSelector((state) => state.questionIndex);
   let results = useSelector((state) => state.result);
   const history = useHistory();
+  const dispatch = useDispatch();
 
   function goHome() {
+    // dispatch(resetState());
     history.push("/");
   }
 
@@ -47,8 +49,7 @@ const QuestionCurrentPage = () => {
   } else {
     console.log(currentQuestionIndex);
     return (
-      <div className='border rounded-xl bg-white  mt-20 w-11/12 h-5/6 m-auto px-10 py-5 shadow-xl flex flex-col'>
-        {/* <div className='flex flex-row justify-between '> */}
+      <div className='border rounded-xl bg-white  mt-20 w-11/12 h-5/6 m-auto px-10 py-5 shadow-xl flex flex-col justify-center text-center'>
         <h1 className=''>You're finished now, go Home </h1>
         <h3 className=' '>Final Score: {currentScore} /10 </h3>
 
@@ -57,7 +58,6 @@ const QuestionCurrentPage = () => {
         </button>
         <button className='border mx-auto px-4 py-1 rounded-full bg-purple-500 text-white'>Leaderboard </button>
       </div>
-      // </div>
     );
   }
 };
