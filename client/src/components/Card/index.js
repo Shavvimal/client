@@ -21,11 +21,10 @@ const Card = ({ question, correctAnswer, incorrectAnswers }) => {
                 <p>Correct: {correctAnswer}  </p>
                 <p>Incorrect: {incorrectAnswers}  </p>
                 <p>Answers: {answers}</p>
+                <p>Shuffled answers:</p> 
+                {renderOptions([...answers])}
 
-                <p>Shuffled answers:</p>
-                <div class="flex flex-col justify-between">
-                    {renderOptions([...answers])}
-                </div>
+
 
 
             </div>
