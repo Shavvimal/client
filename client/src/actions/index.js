@@ -43,7 +43,7 @@ export const submitAnswer = (submittedAnswer) => ({
 
 export const resetState = () => ({
   type: "RESET",
-  payload: { questionIndex: 0, username: "", score: 0 },
+  payload: [0, " ", 0 ]
 });
 
 // Helper scrubber function
