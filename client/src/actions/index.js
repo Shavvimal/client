@@ -56,7 +56,7 @@ export const scrubStr = (str) => {
   return cleanStr;
 };
 
-//Helper Shuffle function - not working
+//Helper Shuffle function:
 export const shuffle = (arr) => {
   let c = arr.length;
   let rand;

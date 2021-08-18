@@ -1,9 +1,9 @@
 const initState = {
   loading: false,
   questionIndex: 0,
-  username: "",
+  username: "polina",
   category: "",
-  difficulty: "",
+  difficulty: "easy",
 
   result: [
     {
@@ -93,6 +93,7 @@ const initState = {
   ],
 
   // result: [{ question: "", correctAnswer: "", incorrectAnswers: [] }],
+  
   score: 0,
 };
 

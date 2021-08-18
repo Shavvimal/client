@@ -53,6 +53,7 @@ const QuestionCurrentPage = () => {
         <h1 className=''>You're finished now, go Home </h1>
         <h3 className=' '>Final Score: {currentScore} /10 </h3>
 
+
         <button className='border mx-auto px-4 py-1 rounded-full bg-purple-500 text-white' onClick={goHome}>
           Home
         </button>
