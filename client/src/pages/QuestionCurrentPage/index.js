@@ -16,8 +16,10 @@ const QuestionCurrentPage = () => {
   const history = useHistory();
   const dispatch = useDispatch();
 
-  const submitData = () => {
 
+
+  const submitData = () => {
+    
     console.log('Submit Data is calling');
 
     const req = {
@@ -29,6 +31,7 @@ const QuestionCurrentPage = () => {
     axios.post('http://localhost:8080/leaderboard', req).then(response => {
         console.log(response);
       }).catch(console.warn);
+    
 }
 
   function goHome() {
