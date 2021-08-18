@@ -36,6 +36,11 @@ export const addUsername = (username) => ({
   payload: username,
 });
 
+export const updateDifficulty = (difficulty) => ({
+  type: "ADD_DIFFICULTY",
+  payload: difficulty,
+});
+
 export const submitAnswer = (submittedAnswer) => ({
   type: "ANSWER_SUBMIT",
   payload: submittedAnswer,
@@ -56,7 +61,7 @@ export const scrubStr = (str) => {
   return cleanStr;
 };
 
-//Helper Shuffle function - not working
+//Helper Shuffle function:
 export const shuffle = (arr) => {
   let c = arr.length;
   let rand;
