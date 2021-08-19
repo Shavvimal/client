@@ -67,7 +67,7 @@ const QuestionCurrentPage = () => {
         <Countdown date={Date.now() + 3000} key={countdownKey} className='transform -rotate-6 text-4xl'>
           <div className='border rounded-xl bg-white w-full h-auto m-auto shadow-xl text-black transform -rotate-6'>
             <div className='mt-5 flex flex-row justify-around'>
-              <p className=' lg:text-3xl'>Question {currentQuestionIndex + 1} </p>
+              <p className=' lg:text-3xl '>Question {currentQuestionIndex + 1} </p>
               <h3 className=' lg:text-3xl'>Score: {currentScore} </h3>
             </div>
 
@@ -97,7 +97,7 @@ const QuestionCurrentPage = () => {
 
             <br></br>
             <div className='flex flex-col justify-around h-auto'>
-              <p className='font-semibold font-black lg:text-3xl'>
+              <p className='font-semibold font-black lg:text-3xl mx-5'>
                 {" "}
                 {scrubStr(results[currentQuestionIndex].question)}{" "}
               </p>
