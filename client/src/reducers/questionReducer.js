@@ -93,7 +93,7 @@ const initState = {
   ],
 
   // result: [{ question: "", correctAnswer: "", incorrectAnswers: [] }],
-  
+
   score: 0,
 };
 
@@ -111,7 +111,13 @@ const questionReducer = (state = initState, action) => {
       }
       return { ...state, questionIndex: state.questionIndex + 1 };
     case "RESET":
-      return { ...state, questionIndex: action.payload[0], username: action.payload[1], score: action.payload[2], error: false };
+      return {
+        ...state,
+        questionIndex: action.payload[0],
+        username: action.payload[1],
+        score: action.payload[2],
+        error: false,
+      };
     case "SET_ERROR":
       return { ...state, error: action.payload };
 
