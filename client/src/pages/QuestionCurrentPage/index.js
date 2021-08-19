@@ -61,8 +61,7 @@ const QuestionCurrentPage = () => {
       ...results[currentQuestionIndex].incorrectAnswers,
       results[currentQuestionIndex].correctAnswer,
     ]);
-
-    console.log(currentQuestionIndex);
+ 
     return (
       <div className='border rounded-xl bg-purple-darker  mt-20 w-11/12 h-5/6 m-auto shadow-xl flex flex-col justify-center text-center text-white transform rotate-6'>
         <Countdown date={Date.now() + 3000} key={countdownKey} className='transform -rotate-6 text-4xl'>
@@ -112,6 +111,7 @@ const QuestionCurrentPage = () => {
             </div>
           </div>
         </Countdown>
+
       </div>
     );
   } else {
