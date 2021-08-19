@@ -75,6 +75,7 @@ const QuestionCurrentPage = () => {
             ['#64dfdf', 0.33],
             ['#48bfe3', 0.33],
             ['#6930c3', 0.33],
+            
           ]}>{({ remainingTime }) => remainingTime}</CountdownCircleTimer></h1>
         <br></br>
 
