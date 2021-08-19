@@ -23,23 +23,14 @@ const Leaderboard = () => {
   }, []);
 
 
-  // If compareFunction(a, b) returns a value > than 0, sort b before a.
-  // If compareFunction(a, b) returns a value < than 0, sort a before b.
-  // If compareFunction(a, b) returns 0, a and b are considered equal
-
-  function compare(a, b) {
-    if (a.score > b.score) {
-      return -1;
-    }
-    if (a.score < b.score) {
-      return 1;
-    }
-    return 0;
+  const renderLeaderboard = dataParam => {
+    const unique = dataParam.sort((a, b) => b.score - a.score).filter((value, index, self) => self.map(x => x.name).indexOf(value.name) == index);
+    const topThreeHard = unique.filter(value => value.difficulty === "hard").slice(0, 3);
+    const topThreeMedium = unique.filter(value => value.difficulty === "medium").slice(0, 3);
+    const topThreeEasy = unique.filter(value => value.difficulty === "easy").slice(0, 3);
+    const total = topThreeHard.concat(topThreeMedium, topThreeEasy);
+    return total.map((t, i) => <LeaderBoardEntry key={i} place={i + 1} name={t.name} score={t.score} difficulty={t.difficulty} />)
   }
-
-
-
-  const renderLeaderboard = (dataParam) => dataParam.sort(compare).map((t, i) => <LeaderBoardEntry key={i} place={i + 1} name={t.name} score={t.score} difficulty={t.difficulty} />)
 
 
   return (
