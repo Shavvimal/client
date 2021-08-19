@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux"; // New imports to work w
 import "./styleHome.css";
 import { Card } from "../../components";
 import { scrubStr, shuffle, resetState, submitAnswer } from "../../actions";
-import { Answer, Transition } from "../../components";
+import { Answer } from "../../components";
 import { useHistory } from "react-router";
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
 import axios from "axios";
