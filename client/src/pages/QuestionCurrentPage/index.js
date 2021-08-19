@@ -21,6 +21,8 @@ const QuestionCurrentPage = () => {
 
   const [key, setKey] = useState(0);
   const [countdownKey, setCountdownKey] = useState(0);
+  const [btnCorrectStyle, setBtnCorrectStyle] = useState("border mx-auto mt-5 w-96 h-16 px-4 py-1 rounded-full bg-purple-500 text-white")
+  const [btnIncorrectStyle, setBtnIncorrectStyle] = useState("border mx-auto mt-5 w-96 h-16 px-4 py-1 rounded-full bg-purple-500 text-white")
 
   const submitData = () => {
     console.log("Submit Data is calling");
@@ -49,12 +51,26 @@ const QuestionCurrentPage = () => {
     history.push("/Leaderboard");
   }
 
+  const sendIncorrect = () => {
+    setBtnIncorrectStyle("border mx-auto mt-5 w-96 h-16 px-4 py-1 rounded-full bg-red-500 text-white")
+    setTimeout(() =>{
+      setKey((prevKey) => prevKey + 1);
+      setCountdownKey((prevCountdownKey) => prevCountdownKey + 1);
+      dispatch(submitAnswer(userAnswer));
+    }, 3000)
+  }
+
   const sendAnswer = (e) => {
-    let test = e.target.value;
-    console.log(test);
-    setKey((prevKey) => prevKey + 1);
-    setCountdownKey((prevCountdownKey) => prevCountdownKey + 1);
-    dispatch(submitAnswer(test));
+    let userAnswer = e.target.value;
+    setBtnCorrectStyle("border mx-auto mt-5 w-96 h-16 px-4 py-1 rounded-full bg-green-500 text-white");
+    setTimeout(() =>{
+
+      setKey((prevKey) => prevKey + 1);
+      setCountdownKey((prevCountdownKey) => prevCountdownKey + 1);
+      dispatch(submitAnswer(userAnswer));
+
+    },3000);
+    
   };
 
   if (currentQuestionIndex <= 9) {
@@ -106,9 +122,10 @@ const QuestionCurrentPage = () => {
                 {answers.map((t, i) => (
                   // <Answer key={i} word={t} />
                   <button
-                    className='border mx-auto mt-5 w-5/6 md:w-2/3 md:text-xl h-auto px-4 py-1 rounded-full bg-purple-darker text-white'
-                    onClick={sendAnswer}
+                    className={t===results[currentQuestionIndex].correctAnswer ? btnCorrectStyle : btnIncorrectStyle}
+                    onClick={t===results[currentQuestionIndex].correctAnswer ? sendAnswer : sendIncorrect}
                     value={t}
+                    key={i}
                   >
                     {t}
                   </button>
