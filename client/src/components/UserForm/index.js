@@ -2,16 +2,25 @@ import React, { useState } from "react";
 import { loadQuiz, addUsername, updateDifficulty, resetState } from "../../actions";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { UserCount } from '../'
-
+import { UserCount } from "../";
+import logo from "../../favicon.svg";
 
 function UserForm() {
+  const [username, setUsername] = useState("");
+  const [category, setCategory] = useState("");
+  const [difficulty, setDifficulty] = useState("");
+  const dispatch = useDispatch();
+  const history = useHistory();
 
-    const [username, setUsername] = useState("");
-    const [category, setCategory] = useState("");
-    const [difficulty, setDifficulty] = useState("");
-    const dispatch = useDispatch();
-    const history = useHistory();
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // const quizRequest = { category, difficulty };
+    dispatch(loadQuiz(category, difficulty));
+    dispatch(addUsername(username));
+    dispatch(updateDifficulty(difficulty));
+    history.push("/QuestionPage");
+  };
+
 
     const reset = () =>{
             dispatch(resetState())
@@ -25,20 +34,29 @@ function UserForm() {
         history.push("/QuestionPage")
     };
 
-    const updateUsername = (e) => {
-        const input = e.target.value;
-        setUsername(input);
-    };
+  const updateUsername = (e) => {
+    const input = e.target.value;
+    setUsername(input);
+  };
 
-    const updateCategory = (e) => {
-        const input = e.target.value;
-        setCategory(input);
-    };
 
-    const sendDifficulty = (e) => {
-        const input = e.target.value;
-        setDifficulty(input);
-    };
+  const updateCategory = (e) => {
+    const input = e.target.value;
+    setCategory(input);
+  };
+
+  const sendDifficulty = (e) => {
+    const input = e.target.value;
+    setDifficulty(input);
+  };
+
+  return (
+    <div className='border rounded-xl bg-white  mt-20 w-11/12 h-auto m-auto px-10 py-5 shadow-xl flex flex-col justify-center text-center'>
+      <div className='flex flex-col justify-center'>
+        <img src={logo} class='w-20 mx-auto'></img>
+        <h1 className='text-center text-4xl font-extrabold'>Quizzo</h1>
+      </div>
+
 
     return (
         <>
@@ -87,5 +105,6 @@ function UserForm() {
         </div>
         </>
     );
+
 }
 export default UserForm;
