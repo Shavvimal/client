@@ -50,8 +50,8 @@ function UserForm() {
                     onChange={updateUsername}
                 />
                 <label className=" text-xl mt-8" htmlFor='categorySelect'>Category</label>
-                <select className=" text-xl shadow border rounded-md w-full py-2 px-3 text-gray-700 mt-1 leading-tight  outline-none focus:outline-none focus-within:border-blue-400 transition-all duration-500 focus:border" name='category' id='categorySelect' required onChange={updateCategory}>
-                    <option value='' disabled selected>Choose a Category</option>
+                <select defaultValue={'DEFAULT'} className=" text-xl shadow border rounded-md w-full py-2 px-3 text-gray-700 mt-1 leading-tight  outline-none focus:outline-none focus-within:border-blue-400 transition-all duration-500 focus:border" name='category' id='categorySelect' required onChange={updateCategory}>
+                    <option value='DEFAULT' disabled>Choose a Category... </option>
                     <option value='9'>General Knowledge</option>
                     <option value='31'>Anime and Manga</option>
                     <option value='10'>Books</option>
@@ -64,9 +64,9 @@ function UserForm() {
                     <option value='15'>Video Games</option>
                 </select>
                 <label className=" text-xl mt-8" htmlFor='difficultySelect'>Difficulty</label>
-                <select
+                <select defaultValue={'DEFAULT'}
                     className=" text-xl shadow border rounded-md w-full py-2 px-3 text-gray-700 mt-1 leading-tight  outline-none focus:outline-none focus-within:border-blue-400 transition-all duration-500 focus:border" name='difficulty' id='difficultySelect' required onChange={sendDifficulty}>
-                    <option value='' disabled selected>Choose a Difficulty</option>
+                    <option value='DEFAULT' disabled >Choose a Difficulty</option>
                     <option value='easy'>Easy</option>
                     <option value='medium'>Medium</option>
                     <option value='hard'>Hard</option>
