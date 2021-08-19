@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux"; // New imports to work with Redux
 import "./styleHome.css";
-import { Card } from "../../components";
 import { scrubStr, shuffle, resetState, submitAnswer } from "../../actions";
+
 import { Answer } from "../../components";
+
 import { useHistory } from "react-router";
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
 import axios from "axios";
@@ -65,9 +66,9 @@ const QuestionCurrentPage = () => {
     return (
       <div className='rounded-xl bg-purple-darker  mt-20 w-11/12 h-5/6 m-auto shadow-xl flex flex-col justify-center text-center text-white transform rotate-6'>
         <Countdown date={Date.now() + 3000} key={countdownKey} className='transform -rotate-6 text-4xl'>
-          <div className='border rounded-xl bg-white w-full h-auto m-auto shadow-xl text-black transform -rotate-6'>
+          <div className='rounded-xl bg-white w-full h-auto m-auto shadow-xl text-black transform -rotate-6'>
             <div className='mt-5 flex flex-row justify-around'>
-              <p className=' lg:text-3xl'>Question {currentQuestionIndex + 1} </p>
+              <p className=' lg:text-3xl '>Question {currentQuestionIndex + 1} </p>
               <h3 className=' lg:text-3xl'>Score: {currentScore} </h3>
             </div>
 
@@ -77,7 +78,6 @@ const QuestionCurrentPage = () => {
                   onComplete={() => {
                     setCountdownKey((prevCountdownKey) => prevCountdownKey + 1);
                     dispatch(submitAnswer(""));
-
                     return [true, 100];
                   }}
                   key={key}
@@ -97,7 +97,7 @@ const QuestionCurrentPage = () => {
 
             <br></br>
             <div className='flex flex-col justify-around h-auto'>
-              <p className='font-semibold font-black lg:text-3xl'>
+              <p className='font-semibold font-black lg:text-3xl mx-5'>
                 {" "}
                 {scrubStr(results[currentQuestionIndex].question)}{" "}
               </p>

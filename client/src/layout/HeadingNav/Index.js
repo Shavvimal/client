@@ -1,12 +1,11 @@
 import React from 'react';
-import { NavLink, useHistory } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import './style.css'
 
-const Header = () => {
-    const history = useHistory();
+const HeadingNav = () => {
     return (
 
-        <nav className="bg-white flex flex-row justify-around mx-20 py-2 rounded-b-full">
+        <nav className="bg-white flex flex-row justify-around mx-20 py-2 rounded-b-full shadow-xl">
             <NavLink className="homeLink" exact to="/">Home</NavLink>
             <NavLink className="leaderBoard" to="/Leaderboard">LeaderBoard</NavLink>
         </nav>
@@ -14,4 +13,4 @@ const Header = () => {
     );
 }
 
-export default Header;
+export default HeadingNav;
