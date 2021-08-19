@@ -59,8 +59,7 @@ const QuestionCurrentPage = () => {
 
     const answers = shuffle([...results[currentQuestionIndex].incorrectAnswers, results[currentQuestionIndex].correctAnswer,
     ]);
-
-    console.log(currentQuestionIndex);
+ 
     return (
       <div className='border rounded-xl bg-white w-11/12 h-5/6 m-auto mt-20 px-10 py-5 shadow-xl'>
 
@@ -85,7 +84,7 @@ const QuestionCurrentPage = () => {
         </div>
 
         <br />
-        <p className='font-semibold'> {scrubStr(results[currentQuestionIndex].question)} </p>
+        <p className='font-semibold'> {results[currentQuestionIndex].question} </p>
         <br />
         <p>Correct: {results[currentQuestionIndex].correctAnswer} </p>
         {/* <p>Incorrect: {results[currentQuestionIndex].incorrectAnswers} </p> */}
