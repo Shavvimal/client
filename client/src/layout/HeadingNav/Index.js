@@ -1,8 +1,8 @@
 import React from 'react';
-import { NavLink, useHistory } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import './style.css'
 
-const Header = () => {
+const HeadingNav = () => {
     return (
 
         <nav className="bg-white flex flex-row justify-around mx-20 py-2 rounded-b-full shadow-xl">
@@ -13,4 +13,4 @@ const Header = () => {
     );
 }
 
-export default Header;
+export default HeadingNav;

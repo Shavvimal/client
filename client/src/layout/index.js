@@ -1,1 +1,1 @@
-export { default as HeadingNav } from './HeadingNav';
+export { default as HeadingNav } from "./HeadingNav";
