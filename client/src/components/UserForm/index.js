@@ -45,12 +45,12 @@ function UserForm() {
       {reset()}
       <div className=' rounded-xl bg-white  mt-20 w-11/12 h-auto m-auto px-10 py-5 shadow-xl flex flex-col justify-center text-center mb-10'>
         <div className='flex flex-col justify-center'>
-          <img src={logo} class='w-20 mx-auto'></img>
+          <img alt='Quizzo Logo' src={logo} class='w-20 mx-auto'></img>
           <h1 className='text-center text-4xl font-extrabold'>Quizzo</h1>
         </div>
         <h2 className='text-center text-2xl py-3'> Enter options to start quiz! </h2>
-        <form className='flex flex-col mx-auto' role='form' onSubmit={handleSubmit}>
-          <label className=' text-xl' htmlFor='username'>
+        <form aria-label='userForm' className='flex flex-col mx-auto' role='form' onSubmit={handleSubmit}>
+          <label className=' text-xl' placeholder='Enter Username' htmlFor='username'>
             Username:
           </label>
           <input
@@ -64,7 +64,7 @@ function UserForm() {
             required
           />
           <label className=' text-xl mt-8' htmlFor='categorySelect'>
-            Category
+            Category:
           </label>
           <select
             defaultValue={"DEFAULT"}
@@ -89,7 +89,7 @@ function UserForm() {
             <option value='15'>Video Games</option>
           </select>
           <label className=' text-xl mt-8' htmlFor='difficultySelect'>
-            Difficulty
+            Difficulty:
           </label>
           <select
             defaultValue={"DEFAULT"}
