@@ -31,6 +31,8 @@ export const loadQuiz = (category, difficulty) => {
   };
 };
 
+
+
 export const addUsername = (username) => ({
   type: "ADD_USERNAME",
   payload: username,
@@ -48,7 +50,7 @@ export const submitAnswer = (submittedAnswer) => ({
 
 export const resetState = () => ({
   type: "RESET",
-  payload: [0, " ", 0 ]
+  payload: [0, " ", 0]
 });
 
 // Helper scrubber function
