@@ -63,7 +63,7 @@ const QuestionCurrentPage = () => {
     return (
       <div className='rounded-xl bg-purple-darker  mt-20 w-11/12 h-5/6 m-auto shadow-xl flex flex-col justify-center text-center text-white transform rotate-6'>
         <Countdown date={Date.now() + 3000} key={countdownKey} className='transform -rotate-6 text-4xl'>
-          <div className='border rounded-xl bg-white w-full h-auto m-auto shadow-xl text-black transform -rotate-6'>
+          <div className='rounded-xl bg-white w-full h-auto m-auto shadow-xl text-black transform -rotate-6'>
             <div className='mt-5 flex flex-row justify-around'>
               <p className=' lg:text-3xl '>Question {currentQuestionIndex + 1} </p>
               <h3 className=' lg:text-3xl'>Score: {currentScore} </h3>
