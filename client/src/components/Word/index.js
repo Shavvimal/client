@@ -6,7 +6,7 @@ const Word = () => {
 
 
     return (
-        <div clasName="">word</div>
+        <div className="">word</div>
     );
 }
 

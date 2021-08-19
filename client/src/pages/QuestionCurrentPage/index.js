@@ -122,10 +122,6 @@ const QuestionCurrentPage = () => {
     );
   }
 
-
-
-
-
 };
 
 export default QuestionCurrentPage;
