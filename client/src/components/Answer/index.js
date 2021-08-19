@@ -17,19 +17,11 @@ const Answer = ({ word }) => {
     dispatch(submitAnswer(word));
   };
 
+
   return (
     <button className={style} onClick={sendAnswer}>
       {word}
     </button>
   );
-};
-
-
-  };
-  return (
-    <button className={style} onClick={sendAnswer}>
-      {word}
-    </button>
-  );
-};
+}
 export default Answer;
