@@ -12,7 +12,6 @@ function UserForm() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // const quizRequest = { category, difficulty };
         dispatch(loadQuiz(category, difficulty));
         dispatch(addUsername(username));
         dispatch(updateDifficulty(difficulty));
