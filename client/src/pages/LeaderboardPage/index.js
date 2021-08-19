@@ -23,16 +23,16 @@ const Leaderboard = () => {
   }, []);
 
 
-    // "Hard" difficulty scores get a multiplier of 1.4
-    // "Medium" - multiplier of 1.2
+  // "Hard" difficulty scores get a multiplier of 1.4
+  // "Medium" - multiplier of 1.2
 
   const multiplyScore = (el) => {
-    
-    if (el.difficulty === "hard") { 
+
+    if (el.difficulty === "hard") {
       el.score = Math.ceil(el.score *= 1.4);
     } else if (el.difficulty === "medium") {
       el.score = Math.ceil(el.score *= 1.2)
-    } 
+    }
     return el;
   }
 
@@ -51,7 +51,7 @@ const Leaderboard = () => {
   return (
     <>
 
-      <div className='border rounded-xl bg-white  mt-20 w-11/12 h-5/6 m-auto px-10 py-5 shadow-xl flex flex-col justify-center text-center'>
+      <div className='border rounded-xl bg-white mb-10 mt-20 w-11/12 h-5/6 m-auto px-10 py-5 shadow-xl flex flex-col justify-center text-center'>
         <h1 className=''>Quizzo Leaderboard </h1>
 
         <table className=" w-full mt-6 mx-auto table text-black border-separate space-y-4 z-2">
