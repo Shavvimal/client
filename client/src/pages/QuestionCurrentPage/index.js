@@ -119,7 +119,11 @@ const QuestionCurrentPage = () => {
         {submitData()}
         <div className='border rounded-xl bg-white  mt-20 w-11/12 h-5/6 m-auto px-10 py-5 shadow-xl flex flex-col justify-center text-center'>
           <h1 className=''>You're finished now, go Home </h1>
+          <br></br>
           <h3 className=' '>Final Score: {currentScore} /10 </h3>
+          <br></br>
+          <h5><i>Scores will be adjusted with a multiplier of 1.6 for "hard" and 1.3 for "medium" quiz</i></h5>
+          <br></br>
 
           <button className='border mx-auto px-4 py-1 rounded-full bg-purple-500 text-white' onClick={goHome}>
             Home
