@@ -11,7 +11,7 @@
 
 ### Deployment:
 
-https://
+https://quizzo-app.netlify.app/
 
 
 ### Technologies:
@@ -62,6 +62,14 @@ https://
 - Teardown - to stop and remove all artifacts, run **docker-compose down --volumes --remove-orphans**
 
 
+## API endpoints
+
+| Route name | Path                                   | Method        | Purpose |
+| ---------- | ---------------------------------------| ------------- | ------- |
+| create     | `/leaderboard`                         | `POST`        | Working |
+| read       | `/leaderboard`                         | `GET`         | Working |
+
+
 ### Wins
 
 - App is working smoothly
@@ -90,4 +98,3 @@ https://
 - Improve "separation of concerns" in JavaScript and React files
 - Increase test coverage
 - Add animations
-
