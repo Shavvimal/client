@@ -1,5 +1,5 @@
 [build]
-    ci = "npm run build" 
+    command = "npm run build" 
     publish = "client/build"
 [[redirects]]
     from = "/*" 
