@@ -24,10 +24,10 @@ const Leaderboard = () => {
 
 
   const renderLeaderboard = dataParam => {
-    const unique = dataParam.filter((value, index, self) => self.map(x => x.name).indexOf(value.name) == index);
-    const topThreeHard = unique.filter(value => value.difficulty === "hard").sort((a, b) => b.score - a.score).slice(0, 3);
-    const topThreeMedium = unique.filter(value => value.difficulty === "medium").sort((a, b) => b.score - a.score).slice(0, 3);
-    const topThreeEasy = unique.filter(value => value.difficulty === "easy").sort((a, b) => b.score - a.score).slice(0, 3);
+    const unique = dataParam.sort((a, b) => b.score - a.score).filter((value, index, self) => self.map(x => x.name).indexOf(value.name) == index);
+    const topThreeHard = unique.filter(value => value.difficulty === "hard").slice(0, 3);
+    const topThreeMedium = unique.filter(value => value.difficulty === "medium").slice(0, 3);
+    const topThreeEasy = unique.filter(value => value.difficulty === "easy").slice(0, 3);
     const total = topThreeHard.concat(topThreeMedium, topThreeEasy);
     return total.map((t, i) => <LeaderBoardEntry key={i} place={i + 1} name={t.name} score={t.score} difficulty={t.difficulty} />)
   }
