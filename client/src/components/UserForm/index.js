@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import { loadQuiz, addUsername, updateDifficulty } from "../../actions";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
+import { UserCount } from '../'
+
+
 function UserForm() {
 
     const [username, setUsername] = useState("");
@@ -72,6 +75,8 @@ function UserForm() {
                 </select>
                 <input className=" text-white bg-purple-darker rounded-full focus:bg-purple-700 w-auto px-28 font-bold text-lg mx-auto p-2 mt-8" type='submit' value='Submit' />
             </form>
+
+            <UserCount />
         </div>
     );
 }
