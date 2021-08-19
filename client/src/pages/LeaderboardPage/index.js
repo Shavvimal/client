@@ -27,13 +27,14 @@ const Leaderboard = () => {
     // "Medium" - multiplier of 1.2
 
   const multiplyScore = (el) => {
-    
+    let newScore = el.score;
     if (el.difficulty === "hard") { 
-      el.score = Math.ceil(el.score *= 1.4);
-    } else if (el.difficulty === "medium") {
-      el.score = Math.ceil(el.score *= 1.2)
-    } 
-    return el;
+      newScore *= 1.6;
+    }
+    if (el.difficulty === "medium") {
+      newScore *= 1.4;
+    }
+    return {...el, score: Math.ceil(newScore)};
   }
 
 
