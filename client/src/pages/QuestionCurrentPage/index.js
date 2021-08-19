@@ -64,7 +64,7 @@ const QuestionCurrentPage = () => {
     return (
       <div className='border rounded-xl bg-white w-11/12 h-5/6 m-auto mt-20 px-10 py-5 shadow-xl'>
 
-        <h1><CountdownCircleTimer onComplete={() => {
+        <h1><CountdownCircleTimer strokeWidth={5} onComplete={() => {
           dispatch(submitAnswer(""));
           return [true, 100]
         }}
@@ -72,9 +72,10 @@ const QuestionCurrentPage = () => {
           isPlaying
           duration={15}
           colors={[
-            ['#004777', 0.33],
-            ['#F7B801', 0.33],
-            ['#A30000', 0.33],
+            ['#64dfdf', 0.33],
+            ['#48bfe3', 0.33],
+            ['#6930c3', 0.33],
+            
           ]}>{({ remainingTime }) => remainingTime}</CountdownCircleTimer></h1>
         <br></br>
 
