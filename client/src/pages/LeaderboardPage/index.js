@@ -23,17 +23,20 @@ const Leaderboard = () => {
   }, []);
 
 
-  // "Hard" difficulty scores get a multiplier of 1.4
-  // "Medium" - multiplier of 1.2
+
+    // "Hard" difficulty scores get a multiplier of 1.6
+    // "Medium" - multiplier of 1.3
 
   const multiplyScore = (el) => {
-
-    if (el.difficulty === "hard") {
-      el.score = Math.ceil(el.score *= 1.4);
-    } else if (el.difficulty === "medium") {
-      el.score = Math.ceil(el.score *= 1.2)
+    let newScore = el.score;
+    if (el.difficulty === "hard") { 
+      newScore *= 1.6;
     }
-    return el;
+    if (el.difficulty === "medium") {
+      newScore *= 1.3;
+    }
+    return {...el, score: Math.ceil(newScore)};
+
   }
 
 
