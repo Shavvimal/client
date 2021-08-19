@@ -2,9 +2,6 @@ import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux"; // New imports to work with Redux
 import "./styleHome.css";
 import { scrubStr, shuffle, resetState, submitAnswer } from "../../actions";
-
-import { Answer } from "../../components";
-
 import { useHistory } from "react-router";
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
 import axios from "axios";
@@ -78,7 +75,6 @@ const QuestionCurrentPage = () => {
                   onComplete={() => {
                     setCountdownKey((prevCountdownKey) => prevCountdownKey + 1);
                     dispatch(submitAnswer(""));
-
                     return [true, 100];
                   }}
                   key={key}
@@ -104,7 +100,6 @@ const QuestionCurrentPage = () => {
               </p>
               <div className='pb-5 mx-10'>
                 {answers.map((t, i) => (
-                  // <Answer key={i} word={t} />
                   <button
                     className='border mx-auto mt-5 w-5/6 md:w-2/3 md:text-xl h-auto px-4 py-1 rounded-full bg-purple-darker text-white'
                     onClick={sendAnswer}
