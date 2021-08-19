@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { loadQuiz, addUsername, updateDifficulty } from "../../actions";
+import { loadQuiz, addUsername, updateDifficulty, resetState } from "../../actions";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { UserCount } from '../'
@@ -12,6 +12,10 @@ function UserForm() {
     const [difficulty, setDifficulty] = useState("");
     const dispatch = useDispatch();
     const history = useHistory();
+
+    const reset = () =>{
+            dispatch(resetState())
+    }
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -38,6 +42,8 @@ function UserForm() {
     };
 
     return (
+        <>
+        {reset()}
         <div className='border rounded-xl bg-white  mt-20 w-11/12 h-5/6 m-auto px-10 py-5 shadow-xl flex flex-col justify-center text-center'>
             <h1 className="text-center text-4xl font-extrabold">Quizzo</h1>
             <h2 className="text-center text-2xl py-3" > Enter options to start quiz! </h2>
@@ -51,6 +57,7 @@ function UserForm() {
                     onMouseOut={(e) => (e.target.placeholder = "Enter a username...")}
                     value={username}
                     onChange={updateUsername}
+                    required
                 />
                 <label className=" text-xl mt-8" htmlFor='categorySelect'>Category</label>
                 <select className=" text-xl shadow border rounded-md w-full py-2 px-3 text-gray-700 mt-1 leading-tight  outline-none focus:outline-none focus-within:border-blue-400 transition-all duration-500 focus:border" name='category' id='categorySelect' required onChange={updateCategory}>
@@ -79,6 +86,7 @@ function UserForm() {
 
             <UserCount />
         </div>
+        </>
     );
 }
 export default UserForm;
