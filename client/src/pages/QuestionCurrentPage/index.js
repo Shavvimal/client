@@ -2,9 +2,6 @@ import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux"; // New imports to work with Redux
 import "./styleHome.css";
 import { scrubStr, shuffle, resetState, submitAnswer } from "../../actions";
-
-import { Answer } from "../../components";
-
 import { useHistory } from "react-router";
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
 import axios from "axios";
@@ -21,8 +18,6 @@ const QuestionCurrentPage = () => {
 
   const [key, setKey] = useState(0);
   const [countdownKey, setCountdownKey] = useState(0);
-  const [btnCorrectStyle, setBtnCorrectStyle] = useState("border mx-auto mt-5 w-96 h-16 px-4 py-1 rounded-full bg-purple-500 text-white")
-  const [btnIncorrectStyle, setBtnIncorrectStyle] = useState("border mx-auto mt-5 w-96 h-16 px-4 py-1 rounded-full bg-purple-500 text-white")
 
   const submitData = () => {
     console.log("Submit Data is calling");
@@ -51,26 +46,12 @@ const QuestionCurrentPage = () => {
     history.push("/Leaderboard");
   }
 
-  const sendIncorrect = () => {
-    setBtnIncorrectStyle("border mx-auto mt-5 w-96 h-16 px-4 py-1 rounded-full bg-red-500 text-white")
-    setTimeout(() =>{
-      setKey((prevKey) => prevKey + 1);
-      setCountdownKey((prevCountdownKey) => prevCountdownKey + 1);
-      dispatch(submitAnswer(userAnswer));
-    }, 3000)
-  }
-
   const sendAnswer = (e) => {
-    let userAnswer = e.target.value;
-    setBtnCorrectStyle("border mx-auto mt-5 w-96 h-16 px-4 py-1 rounded-full bg-green-500 text-white");
-    setTimeout(() =>{
-
-      setKey((prevKey) => prevKey + 1);
-      setCountdownKey((prevCountdownKey) => prevCountdownKey + 1);
-      dispatch(submitAnswer(userAnswer));
-
-    },3000);
-    
+    let test = e.target.value;
+    console.log(test);
+    setKey((prevKey) => prevKey + 1);
+    setCountdownKey((prevCountdownKey) => prevCountdownKey + 1);
+    dispatch(submitAnswer(test));
   };
 
   if (currentQuestionIndex <= 9) {
@@ -94,7 +75,6 @@ const QuestionCurrentPage = () => {
                   onComplete={() => {
                     setCountdownKey((prevCountdownKey) => prevCountdownKey + 1);
                     dispatch(submitAnswer(""));
-
                     return [true, 100];
                   }}
                   key={key}
@@ -120,12 +100,10 @@ const QuestionCurrentPage = () => {
               </p>
               <div className='pb-5 mx-10'>
                 {answers.map((t, i) => (
-                  // <Answer key={i} word={t} />
                   <button
-                    className={t===results[currentQuestionIndex].correctAnswer ? btnCorrectStyle : btnIncorrectStyle}
-                    onClick={t===results[currentQuestionIndex].correctAnswer ? sendAnswer : sendIncorrect}
+                    className='border mx-auto mt-5 w-5/6 md:w-2/3 md:text-xl h-auto px-4 py-1 rounded-full bg-purple-darker text-white'
+                    onClick={sendAnswer}
                     value={t}
-                    key={i}
                   >
                     {t}
                   </button>
