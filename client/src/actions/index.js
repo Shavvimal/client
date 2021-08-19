@@ -11,9 +11,9 @@ export const loadQuiz = (category, difficulty) => {
       let i = 0;
       while (i < 10) {
         target.push({
-          question: data.results[i].question,
-          correctAnswer: data.results[i].correct_answer,
-          incorrectAnswers: data.results[i].incorrect_answers,
+          question: scrubStr(data.results[i].question),
+          correctAnswer: scrubStr(data.results[i].correct_answer),
+          incorrectAnswers: data.results[i].incorrect_answers.map(el => scrubStr(el)),
         });
         i++;
       }
