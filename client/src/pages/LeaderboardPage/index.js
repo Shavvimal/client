@@ -44,10 +44,10 @@ const Leaderboard = () => {
     const multipleid = dataParam.map(el => {
       if
         (el.difficulty === "hard") {
-        return { ...el, score: Math.ceil(el.score *= 1.264911) }
+        return { ...el, score: Math.ceil(el.score *= 1.6) }
       }
       if (el.difficulty === "medium") {
-        return { ...el, score: Math.ceil(el.score *= 1.140175425) };
+        return { ...el, score: Math.ceil(el.score *= 1.3) };
       }
       else return { ...el };
 
