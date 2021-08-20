@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { Switch, Route } from "react-router-dom";
-import { Header } from "./layout";
-import { WelcomePage, QuestionCurrentPage, Leaderboard } from "./pages";
+import { WelcomePage, QuestionCurrentPage, Leaderboard, HeadingNavBar } from "./pages";
+
 import "./styles/app.css";
 
 function App() {
   return (
     <>
-      <Header />
-
+      <HeadingNavBar />
       <Switch>
         <Route exact path='/'>
           <WelcomePage />

@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import './style.css'
 
-const Header = () => {
+const HeadingNavBar = () => {
     return (
 
         <nav className="bg-white flex flex-row justify-around mx-20 py-2 rounded-b-full shadow-xl">
@@ -13,4 +13,4 @@ const Header = () => {
     );
 }
 
-export default Header;
+export default HeadingNavBar;
