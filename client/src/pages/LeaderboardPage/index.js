@@ -14,7 +14,7 @@ const Leaderboard = () => {
     async function leaderboardScores() {
       try {
         const result = await axios.get(
-          `http://localhost:8080/leaderboard`
+          `/api/*`
         )
         setData(result.data.leaderboard)
       }
