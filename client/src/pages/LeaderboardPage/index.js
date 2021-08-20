@@ -14,7 +14,7 @@ const Leaderboard = () => {
     async function leaderboardScores() {
       try {
         const result = await axios.get(
-          `/api/*`
+          `http://13.59.11.193:2096/leaderboard`
         )
         setData(result.data.leaderboard)
       }
@@ -26,7 +26,7 @@ const Leaderboard = () => {
   // "Hard" difficulty scores get a multiplier of 1.6
   // "Medium" - multiplier of 1.3
 
-  const multiplyScore = (el) => {
+  let multiplyScore = (el) => {
     let newScore = el.score;
     if (el.difficulty === "hard") {
       newScore *= 1.6;
@@ -39,13 +39,25 @@ const Leaderboard = () => {
 
 
   const renderLeaderboard = dataParam => {
-    const unique = dataParam.sort((a, b) => b.score - a.score).filter((value, index, self) => self.map(x => x.name).indexOf(value.name) == index).map(y => multiplyScore(y));
 
-    const topThreeHard = unique.filter(value => value.difficulty === "hard").slice(0, 3);
-    const topThreeMedium = unique.filter(value => value.difficulty === "medium").slice(0, 3);
-    const topThreeEasy = unique.filter(value => value.difficulty === "easy").slice(0, 3);
-    const total = topThreeHard.concat(topThreeMedium, topThreeEasy);
-    return total.map((t, i) => <LeaderBoardEntry key={i} place={i + 1} name={t.name} score={t.score} difficulty={t.difficulty} />)
+
+    const multipleid = dataParam.map(el => {
+      if
+        (el.difficulty === "hard") {
+        return { ...el, score: Math.ceil(el.score *= 1.264911) }
+      }
+      if (el.difficulty === "medium") {
+        return { ...el, score: Math.ceil(el.score *= 1.140175425) };
+      }
+
+      else return { ...el };
+
+    }).sort((a, b) => b.score - a.score);
+
+    console.log(multipleid)
+
+
+    return multipleid.map((t, i) => <LeaderBoardEntry key={i} place={i + 1} name={t.name} score={t.score} difficulty={t.difficulty} />)
   }
 
 
