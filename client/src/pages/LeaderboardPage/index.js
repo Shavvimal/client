@@ -14,7 +14,7 @@ const Leaderboard = () => {
     async function leaderboardScores() {
       try {
         const result = await axios.get(
-          `http://13.59.11.193:2096/leaderboard`
+          `/api/*`
         )
         setData(result.data.leaderboard)
       }
@@ -49,7 +49,6 @@ const Leaderboard = () => {
       if (el.difficulty === "medium") {
         return { ...el, score: Math.ceil(el.score *= 1.140175425) };
       }
-
       else return { ...el };
 
     }).sort((a, b) => b.score - a.score);
